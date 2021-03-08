@@ -5,5 +5,21 @@
 {% endblock %}
 
 {% block content %}
-    <p>Catalogue</p>
+    <h1>Catalogue</h1>
+    <table class="table">
+        <tr>
+            <th>Recipe</th>
+            <th>Favourite</th>
+        </tr>
+
+        {% for x in recipes %}
+            <tr>
+                <td>
+                    <h5>{{ x.name }}</h5>
+                    <p>{{ x.description }}</p>
+                </td>
+                <td>{{ x.favourite }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
