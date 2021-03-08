@@ -11,12 +11,12 @@ class Ingredient(models.Model):
 
 
 class Recipe(models.Model):
-    # Recipe-Ingredient M-M
-    ingredients = models.ManyToManyField(Ingredient)
-
     name = models.CharField(max_length=50, null=True)
     description = models.TextField(null=True, blank=True)
     favourite = models.BooleanField(default=False, null=True)
+
+    # Recipe-Ingredient M-M
+    ingredients = models.ManyToManyField(Ingredient)
 
     def __str__(self):
         return self.name

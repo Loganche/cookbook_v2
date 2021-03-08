@@ -6,7 +6,24 @@
 
 {% block content %}
     <h1>Recipe</h1>
-    <li>
-
-    </li>
+    <table class="table">
+        <tr>
+            <th>Recipe</th>
+            <th>Ingredients</th>
+            <th>Favourite</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>{{ recipe.name }}</td>
+            <td>
+                {% for ingredient in ingredients %}
+                    {{ ingredient.name }}
+                {% endfor %}
+            </td>
+            <td>{{ recipe.favourite }}</td>
+        </tr>
+    </table>
+    <h5>Description</h5>
+    <p>{{ recipe.description }}</p>
+    <form class="button"><a href="{% url 'catalogues:catalogue' %}">Back</a></form>
 {% endblock %}

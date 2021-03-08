@@ -5,7 +5,9 @@ from recipes.models import Recipe
 
 def catalogue(request):
     recipes = Recipe.objects.all()
-    return render(request, 'catalogues/catalogue.html', {'recipes': recipes})
+
+    context = {'recipes': recipes}
+    return render(request, 'catalogues/catalogue.html', context)
 
 
 def search(request):

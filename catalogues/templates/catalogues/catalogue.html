@@ -10,15 +10,16 @@
         <tr>
             <th>Recipe</th>
             <th>Favourite</th>
+            <th></th>
+            <th></th>
         </tr>
 
         {% for x in recipes %}
             <tr>
-                <td>
-                    <h5>{{ x.name }}</h5>
-                    <p>{{ x.description }}</p>
-                </td>
+                <td><h5>{{ x.name }}</h5></td>
                 <td>{{ x.favourite }}</td>
+                <td><a href="{% url 'recipes:recipe' x.pk %}">View</a></td>
+                <td><a href="#">Delete</a></td>
             </tr>
         {% endfor %}
     </table>
