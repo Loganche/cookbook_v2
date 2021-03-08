@@ -9,7 +9,7 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        <input type="submit" name="Confirm">
-        <a href="{% url 'catalogues:catalogue' %}">Cancel</a>
+        <input class="btn btn-danger" type="submit" name="Confirm">
+        <a class="btn btn-warning" href="{% url 'catalogues:catalogue' %}">Cancel</a>
     </form>
 {% endblock %}

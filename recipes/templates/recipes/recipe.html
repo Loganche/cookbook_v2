@@ -30,9 +30,9 @@
 
     <table>
         <tr>
-            <th><form class="button bt-sm"><a href="{% url 'recipes:update' recipe.pk %}">Edit</a></form></th>
-            <th><form class="button bt-sm"><a href="{% url 'recipes:delete' recipe.pk %}">Delete</a></form></th>
-            <th><form class="button bt-sm"><a href="{% url 'catalogues:catalogue' %}">Back</a></form></th>
+            <th><a class="btn btn-warning" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
+            <th><a class="btn btn-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></th>
+            <th><a class="btn btn-info" href="{% url 'catalogues:catalogue' %}">Back</a></th>
         </tr>
     </table>
 {% endblock %}

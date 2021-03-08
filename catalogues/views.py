@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # Create your views here.
 from recipes.models import Recipe
+from recipes.filters import RecipeFilter
 
 
 def catalogue(request):
@@ -11,4 +12,10 @@ def catalogue(request):
 
 
 def search(request):
-    return render(request, 'catalogues/search.html')
+    recipes = Recipe.objects.all()
+
+    recipeFilter = RecipeFilter(request.GET, queryset=recipes)
+    recipes = recipeFilter.qs
+
+    context = {'recipeFilter': recipeFilter, 'recipes': recipes}
+    return render(request, 'catalogues/search.html', context)
