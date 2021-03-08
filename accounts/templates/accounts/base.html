@@ -8,14 +8,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        {% block Title %}
+        {% block title %}
         {% endblock %}
     </title>
 </head>
 <body>
-    {% block Header %}
-    {% endblock %}
-    {% block Content %}
-    {% endblock %}
+    <div class="container">
+        {% block header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

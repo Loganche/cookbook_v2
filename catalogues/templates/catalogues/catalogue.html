@@ -1,7 +1,7 @@
 {% extends 'catalogues/base.html' %}
 
 {% block title %}
-    <h1>Catalogue page</h1>
+    Catalogue page
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
                 <td><h5>{{ x.name }}</h5></td>
                 <td>{{ x.favourite }}</td>
                 <td><a href="{% url 'recipes:recipe' x.pk %}">View</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="{% url 'recipes:delete' x.pk %}">Delete</a></td>
             </tr>
         {% endfor %}
     </table>

@@ -1,9 +1,14 @@
 {% extends 'recipes/base.html' %}
 
 {% block title %}
-    <h1>New recipe page</h1>
+    Editing
 {% endblock %}
 
 {% block content %}
-    <p>New recipe</p>
+    <h1>New recipe</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="Submit">
+    </form>
 {% endblock %}

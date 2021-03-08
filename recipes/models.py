@@ -13,7 +13,7 @@ class Ingredient(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=50, null=True)
     description = models.TextField(null=True, blank=True)
-    favourite = models.BooleanField(default=False, null=True)
+    favourite = models.BooleanField(default=False)
 
     # Recipe-Ingredient M-M
     ingredients = models.ManyToManyField(Ingredient)

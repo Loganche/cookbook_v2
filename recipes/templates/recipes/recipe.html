@@ -1,11 +1,12 @@
 {% extends 'recipes/base.html' %}
 
 {% block title %}
-    <h1>Recipe page</h1>
+    Recipe page
 {% endblock %}
 
 {% block content %}
     <h1>Recipe</h1>
+
     <table class="table">
         <tr>
             <th>Recipe</th>
@@ -23,7 +24,15 @@
             <td>{{ recipe.favourite }}</td>
         </tr>
     </table>
+
     <h5>Description</h5>
     <p>{{ recipe.description }}</p>
-    <form class="button"><a href="{% url 'catalogues:catalogue' %}">Back</a></form>
+
+    <table>
+        <tr>
+            <th><form class="button bt-sm"><a href="{% url 'recipes:update' recipe.pk %}">Edit</a></form></th>
+            <th><form class="button bt-sm"><a href="{% url 'recipes:delete' recipe.pk %}">Delete</a></form></th>
+            <th><form class="button bt-sm"><a href="{% url 'catalogues:catalogue' %}">Back</a></form></th>
+        </tr>
+    </table>
 {% endblock %}
