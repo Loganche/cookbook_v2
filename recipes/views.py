@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def new(request):
-    return render(request, 'accounts/new.html')
+    return render(request, 'recipes/new.html')
 
 
 def recipe(request):
-    return render(request, 'accounts/recipe.html')
+    return render(request, 'recipes/recipe.html')
