@@ -11,7 +11,8 @@ class Ingredient(models.Model):
 
 
 class Recipe(models.Model):
-    # ingredients list
+    # Recipe-Ingredient M-M
+    ingredients = models.ManyToManyField(Ingredient)
 
     name = models.CharField(max_length=50, null=True)
     description = models.TextField(null=True)
