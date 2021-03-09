@@ -5,7 +5,7 @@
 
 *Group:* P3222
 
-Simple web-project on Python Django
+*Annotation:* Simple web-project on Python Django
 
 ### Features:
 * Catalogue
