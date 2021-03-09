@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import *
 from .forms import RecipeForm
+from accounts.decorators import *
 
 
 @login_required(login_url='accounts:login')
@@ -33,6 +34,7 @@ def update(request, pk):
 
 
 @login_required(login_url='accounts:login')
+@allowed_users(allowed_roles=['admin'])
 def delete(request, pk):
     recipe = Recipe.objects.get(id=pk)
     if request.method == 'POST':

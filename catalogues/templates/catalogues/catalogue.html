@@ -19,7 +19,9 @@
                 <td><h5>{{ x.name }}</h5></td>
                 <td>{{ x.favourite }}</td>
                 <td><a class="btn btn-info" href="{% url 'recipes:recipe' x.pk %}">View</a></td>
-                <td><a class="btn btn-danger" href="{% url 'recipes:delete' x.pk %}">Delete</a></td>
+                {% if request.user.is_staff %}
+                    <td><a class="btn btn-danger" href="{% url 'recipes:delete' x.pk %}">Delete</a></td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
