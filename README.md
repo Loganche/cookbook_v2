@@ -5,8 +5,9 @@
 
 *Group:* P3222
 
-*Contact Info:* * [VK](http://vk.com/idallogan)
-                * lxndrloginov@gmail.com
+*Contact Info:*
+* [VK](http://vk.com/idallogan)
+* lxndrloginov@gmail.com
 
 *Annotation:* Simple web-project on Python Django
 
