@@ -18,16 +18,16 @@ Stack of Technologies:
 Django apps:
 * main
   1. home
-  2. about
+  1. about
 * catalogues
   1. catalogue
-  2. search
+  1. search
 * accounts
   1. login
-  2. register
-  3. profile
-  4. users
+  1. register
+  1. profile
+  1. users
 * recipes
   1. new/edit
-  2. delete
-  3. recipe
+  1. delete
+  1. recipe
