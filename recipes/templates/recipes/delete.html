@@ -10,6 +10,6 @@
         {% csrf_token %}
 
         <input class="btn btn-danger" type="submit" name="Confirm">
-        <a class="btn btn-warning" href="{% url 'catalogues:catalogue' %}">Cancel</a>
+        <a class="btn btn-warning" href="{% url 'main:home' %}">Cancel</a>
     </form>
 {% endblock %}

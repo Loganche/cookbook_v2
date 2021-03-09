@@ -5,6 +5,8 @@
     <a class="p-2 text-dark" href="{% url 'catalogues:catalogue' %}">Catalogue</a>
     <a class="p-2 text-dark" href="{% url 'catalogues:search' %}">Search</a>
     <a class="p-2 text-dark" href="{% url 'main:about' %}">About</a>
+      <span class="p-2 text-dark">Hello, {{ request.user }}</span>
+      <a class="btn btn-outline-primary" href="{% url 'accounts:register' %}">Login or Register</a>
+      <a class="btn btn-outline-primary" href="{% url 'accounts:logout' %}">Logout</a>
   </nav>
-  <a class="btn btn-outline-primary" href="{% url 'accounts:register' %}">Login or Register</a>
 </header>

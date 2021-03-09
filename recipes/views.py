@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import *
 from .forms import RecipeForm
 
 
+@login_required(login_url='accounts:login')
 def new(request):
     form = RecipeForm()
     if request.method == 'POST':
@@ -16,6 +18,7 @@ def new(request):
     return render(request, 'recipes/new.html', context)
 
 
+@login_required(login_url='accounts:login')
 def update(request, pk):
     recipe = Recipe.objects.get(id=pk)
     form = RecipeForm(instance=recipe)
@@ -29,6 +32,7 @@ def update(request, pk):
     return render(request, 'recipes/new.html', context)
 
 
+@login_required(login_url='accounts:login')
 def delete(request, pk):
     recipe = Recipe.objects.get(id=pk)
     if request.method == 'POST':
