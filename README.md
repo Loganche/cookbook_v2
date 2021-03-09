@@ -28,9 +28,10 @@
   1. search
 * accounts
   1. login
-  1. register
-  1. profile
-  1. users
+  2. logout
+  3. register
+  4. profile
+  5. users
 * recipes
   1. new/edit
   1. delete
