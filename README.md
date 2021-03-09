@@ -1,9 +1,12 @@
 # cookbook_v2
 ### Django project 3d semester
 
-*Student:* Alexander Loginov [VK](http://vk.com/idallogan)
+*Student:* Alexander Loginov
 
 *Group:* P3222
+
+*Contact Info:* * [VK](http://vk.com/idallogan)
+                * lxndrloginov@gmail.com
 
 *Annotation:* Simple web-project on Python Django
 
