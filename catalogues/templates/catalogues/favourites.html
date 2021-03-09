@@ -1,26 +1,22 @@
 {% extends 'catalogues/base.html' %}
 
 {% block title %}
-    Search page
+    Catalogue page
 {% endblock %}
 
 {% block content %}
-    <h1>Search</h1>
-
-    <form method="GET">
-        {{ recipeFilter.form.as_p }}
-        <button class="btn btn-outline-info" type="submit">Search</button>
-    </form>
-
+    <h1>Catalogue</h1>
     <table class="table">
+        <tr>
+            <th>Recipe</th>
+            <th></th>
+            <th></th>
+        </tr>
+
         {% for recipe in recipes %}
             <tr>
                 <td><h5>{{ recipe.name }}</h5></td>
-                <td>Favourite - {{ recipe.favourite }}</td>
                 <td><a class="btn btn-outline-info" href="{% url 'recipes:recipe' recipe.pk %}">View</a></td>
-                {% if request.user.is_authenticated %}
-                    <td><a class="btn btn-outline-warning" href="{% url 'recipes:new' %}">Edit</a></td>
-                {% endif %}
                 {% if request.user.is_staff %}
                     <td><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></td>
                 {% endif %}

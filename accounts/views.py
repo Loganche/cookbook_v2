@@ -48,7 +48,7 @@ def loginPage(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect('accounts:login')
+    return redirect('main:home')
 
 
 @login_required(login_url='accounts:login')

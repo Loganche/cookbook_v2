@@ -11,6 +11,13 @@ def catalogue(request):
     return render(request, 'catalogues/catalogue.html', context)
 
 
+def catalogue(request):
+    recipes = Recipe.objects.all()
+
+    context = {'recipes': recipes}
+    return render(request, 'catalogues/catalogue.html', context)
+
+
 def search(request):
     recipes = Recipe.objects.all()
 

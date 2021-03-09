@@ -20,7 +20,7 @@
                 <td>{{ recipe.name }}</td>
                 <td>
                     {% for ingredient in ingredients %}
-                        {{ ingredient.name }}
+                        {{ ingredient.name }};
                     {% endfor %}
                 </td>
                 <td>{{ recipe.favourite }}</td>
@@ -33,12 +33,12 @@
         <table>
             <tr>
                 {% if request.user.is_authenticated %}
-                    <th><a class="btn btn-warning" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
+                    <th><a class="btn btn-outline-warning" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
                 {% endif %}
                 {% if request.user.is_staff %}
-                    <th><a class="btn btn-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></th>
+                    <th><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></th>
                 {% endif %}
-                <th><a class="btn btn-info" href="{% url 'main:home' %}">Back</a></th>
+                <th><a class="btn btn-outline-primary" href="{% url 'catalogues:catalogue' %}">Back</a></th>
             </tr>
         </table>
     </div>
