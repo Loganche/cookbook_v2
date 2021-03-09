@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
@@ -52,11 +52,26 @@ def logoutPage(request):
 
 
 @login_required(login_url='accounts:login')
-def profile(request):
+def profile(request, pk):
+    user = User.objects.get(id=pk)
+
+    groups = user.groups.all()
+
+    context = {'user': user, 'groups': groups}
     return render(request, 'accounts/profile.html')
 
 
 @login_required(login_url='accounts:login')
 @allowed_users(allowed_roles=['admin'])
 def users(request):
-    return render(request, 'accounts/users.html')
+
+    context = {}
+    return render(request, 'accounts/users.html', context)
+
+
+@login_required(login_url='accounts:login')
+@allowed_users(allowed_roles=['admin'])
+def delete(request):
+
+    context = {}
+    return render(request, 'recipes/delete.html', context)

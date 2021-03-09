@@ -10,7 +10,7 @@
         <a class="btn btn-outline-primary" href="{% url 'accounts:login' %}">Login</a>
       {% endif %}
       {% if request.user.is_authenticated %}
-        <span class="p-2 text-dark">Hello, {{ request.user }}</span>
+        <a href="{% url 'accounts:profile' user.pk %}">Hello, {{ request.user }}</a>
         <a class="btn btn-outline-primary" href="{% url 'accounts:logout' %}">Logout</a>
       {% endif %}
   </nav>

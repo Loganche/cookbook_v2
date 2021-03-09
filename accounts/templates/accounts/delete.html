@@ -1,17 +1,17 @@
-{% extends 'recipes/base.html' %}
+{% extends 'accounts/base.html' %}
 
 {% block title %}
-    Editing
+    Delete account
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <h1>New recipe</h1>
+        <!-- <p>Are you sure want to delete "{{ user }}"?</p>
         <form action="" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input class="btn btn-info" type="submit" name="Submit">
+
+            <input class="btn btn-danger" type="submit" name="Confirm">
             <a class="btn btn-warning" href="{% url 'main:home' %}">Cancel</a>
-        </form>
+        </form> -->
     </div>
 {% endblock %}

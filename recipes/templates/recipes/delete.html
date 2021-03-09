@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    <p>Are you sure want to delete "{{ recipe }}"?</p>
-    <form action="" method="POST">
-        {% csrf_token %}
+    <div class="container">
+        <p>Are you sure want to delete "{{ recipe }}"?</p>
+        <form action="" method="POST">
+            {% csrf_token %}
 
-        <input class="btn btn-danger" type="submit" name="Confirm">
-        <a class="btn btn-warning" href="{% url 'main:home' %}">Cancel</a>
-    </form>
+            <input class="btn btn-danger" type="submit" name="Confirm">
+            <a class="btn btn-warning" href="{% url 'main:home' %}">Cancel</a>
+        </form>
+    </div>
 {% endblock %}
