@@ -2,8 +2,10 @@
 ### Django project 3d semester
 
 *Student:* Alexander Loginov
+
 *Group:* P3222
-[VK](http://vk.com/idallogan")
+
+[VK](http://vk.com/idallogan)
 
 Simple web-project on Python Django
 
