@@ -46,7 +46,9 @@ INSTALLED_APPS = [
 
     # add-ons
     'django_filters',
-
+    'django_extensions',
+    'pydotplus',
+    'pylint',
 ]
 
 MIDDLEWARE = [
