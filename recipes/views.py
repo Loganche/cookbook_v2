@@ -1,4 +1,5 @@
 from django.contrib import auth, messages
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -46,24 +47,25 @@ def delete(request, pk):
     return render(request, 'recipes/delete.html', context)
 
 
+@login_required(login_url='accounts:login')
+def favourite(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+
+    if recipe.favourite.filter(id=request.user.id).exists():
+        recipe.favourite.remove(request.user)
+    else:
+        recipe.favourite.add(request.user)
+
+    return redirect('recipes:recipe', recipe.pk)
+
+
 def recipe(request, pk):
     recipe = Recipe.objects.get(id=pk)
     ingredients = recipe.ingredients.all()
 
-    # adding to favourites
-    if request.user.is_authenticated:
-        user = request.user
-        post = request.POST
+    is_favourite = False
+    if recipe.favourite.filter(id=request.user.id).exists():
+        is_favourite = True
 
-        if post.get('favourite_set'):
-            # Now a user reports this article as a favourite.
-            recipe.favourite_mark_add(user, note=messages.success(request, recipe.name + ' was added to Favourites for ' + user.username))
-
-        elif post.get('favourite_remove'):
-            # Or he removes a favourite flag.
-            recipe.favourite_mark_remove(user)
-
-        is_favourite = recipe.favourite_mark_check(user)
-
-    context = {'recipe': recipe, 'ingredients': ingredients, 'is_favourite': is_favourite, 'post': post}
+    context = {'recipe': recipe, 'ingredients': ingredients, 'is_favourite': is_favourite}
     return render(request, 'recipes/recipe.html', context)

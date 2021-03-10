@@ -1,7 +1,7 @@
 {% extends 'catalogues/base.html' %}
 
 {% block title %}
-    Catalogue page
+    Favourites page
 {% endblock %}
 
 {% block content %}
@@ -22,6 +22,10 @@
                 {% if request.user.is_staff %}
                     <td><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></td>
                 {% endif %}
+            </tr>
+        {% empty %}
+            <tr>
+                <td>No Favourite Recipes found.</td>
             </tr>
         {% endfor %}
     </table>
