@@ -7,19 +7,23 @@
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container">
-        <h1>{{ recipe.name }}</h1>
+        <h1>{{ recipe.name }}
         {% if request.user.is_authenticated %}
             {% if is_favourite %}
-                <a class="btn btn-warning" href="{% url 'recipes:favourite' recipe.pk %}">Favourite</a>
+                <a class="btn btn-lg btn-warning ml-auto mb-2" href="{% url 'recipes:favourite' recipe.pk %}">Favourite</a>
             {% else %}
-                <a class="btn btn-outline-warning" href="{% url 'recipes:favourite' recipe.pk %}">Favourite</a>
+                <a class="btn btn-lg btn-outline-warning ml-auto mb-2" href="{% url 'recipes:favourite' recipe.pk %}">Favourite</a>
             {% endif %}
         {% endif %}
-        <table class="table">
+        </h1>
+        <table class="table mt-3 table-hover">
+            <thead>
             <tr>
                 <th>Recipe</th>
                 <th>Ingredients</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>{{ recipe.name }}</td>
                 <td>
@@ -28,21 +32,22 @@
                     {% endfor %}
                 </td>
             </tr>
+            </tbody>
         </table>
 
         <h5>Description</h5>
         <p>{{ recipe.description }}</p>
 
-        <table>
-            <tr>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
                 {% if request.user.is_authenticated %}
-                    <th><a class="btn btn-outline-success" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
+                    <a class="btn btn-outline-success" href="{% url 'recipes:update' recipe.pk %}">Edit</a>
                 {% endif %}
                 {% if request.user.is_staff %}
-                    <th><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></th>
+                    <a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a>
                 {% endif %}
-                <th><a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Back</a></th>
-            </tr>
-        </table>
+                <a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Back</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

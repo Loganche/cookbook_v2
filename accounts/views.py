@@ -59,19 +59,3 @@ def profile(request, pk):
 
     context = {'user': user, 'groups': groups}
     return render(request, 'accounts/profile.html', context)
-
-
-@login_required(login_url='accounts:login')
-@allowed_users(allowed_roles=['admin'])
-def users(request):
-
-    context = {}
-    return render(request, 'accounts/users.html', context)
-
-
-@login_required(login_url='accounts:login')
-@allowed_users(allowed_roles=['admin'])
-def delete(request):
-
-    context = {}
-    return render(request, 'recipes/delete.html', context)

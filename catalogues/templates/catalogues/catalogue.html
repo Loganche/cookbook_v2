@@ -6,7 +6,8 @@
 
 {% block content %}
     <h1>Catalogue</h1>
-    <table class="table">
+    <table class="table mt-4 table-hover">
+        <thead>
         <tr>
             <th>Recipe</th>
             {% if request.user.is_authenticated %}
@@ -17,18 +18,24 @@
             <th></th>
             {% endif %}
         </tr>
-
+        </thead>
         {% for recipe in recipes %}
+            <tbody>
             <tr>
                 <td><h5>{{ recipe.name }}</h5></td>
                 {% if request.user.is_authenticated %}
-                    <td>{{ is_favourite }}</td>
+                    {% if recipe.favourite.count == 1 %}
+                        <td>In Favourites: {{ recipe.favourite.count }} time</td>
+                    {% else %}
+                        <td>In Favourites: {{ recipe.favourite.count }} times</td>
+                    {% endif %}
                 {% endif %}
                 <td><a class="btn btn-outline-info" href="{% url 'recipes:recipe' recipe.pk %}">View</a></td>
                 {% if request.user.is_staff %}
                     <td><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></td>
                 {% endif %}
             </tr>
+            </tbody>
         {% endfor %}
     </table>
 {% endblock %}

@@ -9,9 +9,22 @@
         <h1>New recipe</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input class="btn btn-outline-info" type="submit" name="Submit">
-            <a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Cancel</a>
+
+            <div >
+                <div>
+
+                </div>
+            </div>
+            {{ form.name }}<br>
+            {{ form.description }}<br>
+            {{ form.ingredients }}
+
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <input class="btn btn-outline-info mt-3" type="submit" name="Submit">
+                    <a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Cancel</a>
+                </div>
+            </div>
         </form>
     </div>
 {% endblock %}

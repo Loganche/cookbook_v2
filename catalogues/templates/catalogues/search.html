@@ -8,16 +8,30 @@
     <h1>Search</h1>
 
     <form method="GET">
-        {{ recipeFilter.form }}
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h6 class="text-secondary">Name: {{ recipeFilter.form.name }}</h6>
+                </div>
+                <div class="col-sm-1 ml-4">
+                    <h6 class=" text-secondary">Ingredients: {{ recipeFilter.form.ingredients }}</h6>
+                </div>
+                <div class="col-sm-1 text-secondary ml-3 mt-3"><button class="btn btn-lg btn-outline-secondary" type="submit">Search</button></div>
+            </div>
+        </div>
     </form>
 
-    <table class="table">
+    <table class="table mt-4 table-hover">
         {% for recipe in recipes %}
+            <tbody>
             <tr>
                 <td><h5>{{ recipe.name }}</h5></td>
                 {% if request.user.is_authenticated %}
-                    <td>{{ is_favourite }}</td>
+                    {% if recipe.favourite.count == 1 %}
+                        <td>In Favourites: {{ recipe.favourite.count }} time</td>
+                    {% else %}
+                        <td>In Favourites: {{ recipe.favourite.count }} times</td>
+                    {% endif %}
                 {% endif %}
                 <td><a class="btn btn-outline-info" href="{% url 'recipes:recipe' recipe.pk %}">View</a></td>
                 {% if request.user.is_authenticated %}
@@ -27,6 +41,7 @@
                     <td><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></td>
                 {% endif %}
             </tr>
+            <tbody>
         {% endfor %}
     </table>
 {% endblock %}

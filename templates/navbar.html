@@ -1,5 +1,5 @@
 <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-5 bg-body border-bottom shadow-sm">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top justify-content-between">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'main:home' %}">Cookbook</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,12 +21,12 @@
               <a class="nav-link active" aria-current="page" href="{% url 'main:about' %}">About</a>
             </li>
               {% if request.user.is_anonymous %}
-                <li class="nav-item"><a class="btn btn-outline-warning" href="{% url 'accounts:register' %}">Register</a></li>
-                <li class="nav-item"><a class="btn btn-outline-info" href="{% url 'accounts:login' %}">Login</a></li>
+                <li class="nav-item"><a class="btn btn-outline-warning ml-auto" href="{% url 'accounts:register' %}">Register</a></li>
+                <li class="nav-item"><a class="btn btn-outline-info ml-1" href="{% url 'accounts:login' %}">Login</a></li>
               {% endif %}
               {% if request.user.is_authenticated %}
-                <li class="nav-item"><a class="btn btn-outline-success" href="{% url 'accounts:profile' user.pk %}">Profile</a></li>
-                <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'accounts:logout' %}">Logout</a></li>
+                <li class="nav-item"><a class="btn btn-outline-success ml-auto" href="{% url 'accounts:profile' user.pk %}">Profile</a></li>
+                <li class="nav-item"><a class="btn btn-outline-primary ml-1" href="{% url 'accounts:logout' %}">Logout</a></li>
               {% endif %}
           </ul>
         </div>

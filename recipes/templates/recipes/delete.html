@@ -6,12 +6,16 @@
 
 {% block content %}
     <div class="container">
-        <p>Are you sure want to delete "{{ recipe }}"?</p>
+        <h5 class="mt-4 mb-4">Are you sure want to delete "{{ recipe }}"?</h5>
         <form action="" method="POST">
             {% csrf_token %}
 
-            <input class="btn btn-outline-danger" type="submit" name="Confirm">
-            <a class="btn btn-outline-warning" href="{% url 'catalogues:catalogue' %}">Cancel</a>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <input class="btn btn-outline-danger" type="submit" name="Confirm">
+                    <a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Cancel</a>
+                </div>
+            </div>
         </form>
     </div>
 {% endblock %}
