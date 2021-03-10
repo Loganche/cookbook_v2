@@ -9,7 +9,7 @@
 
     <form method="GET">
         {{ recipeFilter.form }}
-        <button class="btn btn-outline-info" type="submit">Search</button>
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
 
     <table class="table">
@@ -21,7 +21,7 @@
                 {% endif %}
                 <td><a class="btn btn-outline-info" href="{% url 'recipes:recipe' recipe.pk %}">View</a></td>
                 {% if request.user.is_authenticated %}
-                    <td><a class="btn btn-outline-warning" href="{% url 'recipes:new' %}">Edit</a></td>
+                    <td><a class="btn btn-outline-success" href="{% url 'recipes:new' %}">Edit</a></td>
                 {% endif %}
                 {% if request.user.is_staff %}
                     <td><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></td>

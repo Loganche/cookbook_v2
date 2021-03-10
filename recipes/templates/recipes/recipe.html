@@ -36,12 +36,12 @@
         <table>
             <tr>
                 {% if request.user.is_authenticated %}
-                    <th><a class="btn btn-outline-warning" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
+                    <th><a class="btn btn-outline-success" href="{% url 'recipes:update' recipe.pk %}">Edit</a></th>
                 {% endif %}
                 {% if request.user.is_staff %}
                     <th><a class="btn btn-outline-danger" href="{% url 'recipes:delete' recipe.pk %}">Delete</a></th>
                 {% endif %}
-                <th><a class="btn btn-outline-primary" href="{% url 'catalogues:catalogue' %}">Back</a></th>
+                <th><a class="btn btn-outline-secondary" href="{% url 'catalogues:catalogue' %}">Back</a></th>
             </tr>
         </table>
     </div>
