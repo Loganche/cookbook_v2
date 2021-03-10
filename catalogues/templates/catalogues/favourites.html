@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Catalogue</h1>
+    <h1>Favourites</h1>
     <table class="table">
         <tr>
             <th>Recipe</th>
             <th></th>
+            {% if request.user.is_staff %}
             <th></th>
+            {% endif %}
         </tr>
 
         {% for recipe in recipes %}

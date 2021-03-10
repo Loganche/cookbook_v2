@@ -46,6 +46,8 @@ INSTALLED_APPS = [
 
     # add-ons
     'django_filters',
+    'siteflags',
+
 ]
 
 MIDDLEWARE = [

@@ -5,4 +5,5 @@ app_name = 'catalogues'
 urlpatterns = [
     path('', views.catalogue, name='catalogue'),
     path('search/', views.search, name='search'),
+    path('<int:pk>/favourite', views.favourites, name='favourites'),
 ]

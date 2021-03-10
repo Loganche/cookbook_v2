@@ -8,7 +8,7 @@
     <h1>Search</h1>
 
     <form method="GET">
-        {{ recipeFilter.form.as_p }}
+        {{ recipeFilter.form }}
         <button class="btn btn-outline-info" type="submit">Search</button>
     </form>
 
@@ -16,7 +16,9 @@
         {% for recipe in recipes %}
             <tr>
                 <td><h5>{{ recipe.name }}</h5></td>
-                <td>Favourite - {{ recipe.favourite }}</td>
+                {% if request.user.is_authenticated %}
+                    <td>{{ recipe.favourite }}</td>
+                {% endif %}
                 <td><a class="btn btn-outline-info" href="{% url 'recipes:recipe' recipe.pk %}">View</a></td>
                 {% if request.user.is_authenticated %}
                     <td><a class="btn btn-outline-warning" href="{% url 'recipes:new' %}">Edit</a></td>

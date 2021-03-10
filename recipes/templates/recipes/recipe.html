@@ -7,14 +7,24 @@
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container">
-        <h1>Recipe</h1>
-
+        <h1>{{ recipe.name }}</h1>
+        {% if request.user.is_authenticated %}
+            <form action="" method="POST">
+            {% csrf_token %}
+                <button class="btn btn-warning" type="submit">Remove Favourite {{ recipe.favourite_mark_remove }}</button>
+                <button class="btn btn-outline-warning" type="submit">Add Favourite {{ recipe.favourite_mark_add }}</button>
+                {% for message in messages %}
+                    <p id="messages">{{ message }}</p>
+                {% endfor %}
+            </form>
+        {% endif %}
         <table class="table">
             <tr>
                 <th>Recipe</th>
                 <th>Ingredients</th>
-                <th>Favourite</th>
-                <th></th>
+                {% if request.user.is_authenticated %}
+                    <th>Favourite</th>
+                {% endif %}
             </tr>
             <tr>
                 <td>{{ recipe.name }}</td>
@@ -23,7 +33,9 @@
                         {{ ingredient.name }};
                     {% endfor %}
                 </td>
-                <td>{{ recipe.favourite }}</td>
+                {% if request.user.is_authenticated %}
+                    <td>{{ recipe.favourite }}</td>
+                {% endif %}
             </tr>
         </table>
 

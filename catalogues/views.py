@@ -11,11 +11,11 @@ def catalogue(request):
     return render(request, 'catalogues/catalogue.html', context)
 
 
-def catalogue(request):
+def favourites(request):
     recipes = Recipe.objects.all()
 
     context = {'recipes': recipes}
-    return render(request, 'catalogues/catalogue.html', context)
+    return render(request, 'catalogues/favourites.html', context)
 
 
 def search(request):

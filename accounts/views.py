@@ -58,7 +58,7 @@ def profile(request, pk):
     groups = user.groups.all()
 
     context = {'user': user, 'groups': groups}
-    return render(request, 'accounts/profile.html')
+    return render(request, 'accounts/profile.html', context)
 
 
 @login_required(login_url='accounts:login')
