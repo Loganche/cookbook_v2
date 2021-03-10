@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'pydotplus',
     'pylint',
+    'django-dia',
 ]
 
 MIDDLEWARE = [
