@@ -27,6 +27,7 @@
 * catalogues
   1. catalogue
   1. search
+  2. favourites
 * accounts
   1. login
   2. logout
