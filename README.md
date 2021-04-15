@@ -1,6 +1,6 @@
 # cookbook_v2
 ### Django project 3d semester
-*Annotation:* Simple web-project on Python Django
+*Annotation:* Web-project on Python Django (MVC Pattern)
 ***
 *Student:* Alexander Loginov  
 *Group:* P3222  
