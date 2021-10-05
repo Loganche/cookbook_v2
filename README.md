@@ -5,7 +5,6 @@
 *Student:* Alexander Loginov  
 *Group:* P3222  
 *Contact Info:*
-* [VK](http://vk.com/idallogan)
 * lxndrloginov@gmail.com  
 ***
 ### Features:
